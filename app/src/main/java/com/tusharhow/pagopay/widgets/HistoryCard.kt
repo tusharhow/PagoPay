@@ -19,7 +19,9 @@ import androidx.compose.ui.unit.sp
 import com.tusharhow.pagopay.R
 
 @Composable
-fun HistoryCard() {
+fun HistoryCard(
+    onClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .height(220.dp)
@@ -29,7 +31,7 @@ fun HistoryCard() {
                 shape = RoundedCornerShape(50)
             )
             .clickable {
-
+                onClick()
             },
         contentAlignment = Alignment.Center
     ) {

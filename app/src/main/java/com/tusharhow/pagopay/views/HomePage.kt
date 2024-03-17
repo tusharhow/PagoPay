@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.tusharhow.pagopay.R
 import com.tusharhow.pagopay.components.BottomBar
+import com.tusharhow.pagopay.navigation.Screen
 import com.tusharhow.pagopay.widgets.CardsCard
 import com.tusharhow.pagopay.widgets.HistoryCard
 import com.tusharhow.pagopay.widgets.PaymentCard
@@ -43,11 +44,14 @@ fun HomePage(navController: NavController) {
                         .align(Alignment.BottomCenter)
                         .padding(10.dp)
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.Add,
-                        contentDescription = "add",
-                        tint = Color(0xff19224d),
-                        modifier = Modifier.size(40.dp)
+                    Image(
+                        painter = painterResource(id = R.drawable.qr_code),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .size(25.dp),
+
+
+
                     )
                 }
             }
@@ -172,7 +176,11 @@ fun HomePage(navController: NavController) {
                 }
                 Spacer(modifier = Modifier.width(16.dp))
                 Column {
-                    HistoryCard()
+                    HistoryCard(
+                        onClick = {
+                            navController.navigate(Screen.HistoryScreen.route)
+                        }
+                    )
                     Spacer(modifier = Modifier.height(8.dp))
                     CardsCard()
 
